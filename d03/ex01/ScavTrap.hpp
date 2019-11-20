@@ -1,0 +1,47 @@
+// ************************************************************************** //
+//                                                                            //
+//                                                        :::      ::::::::   //
+//   ScavTrap.hpp                                       :+:      :+:    :+:   //
+//                                                    +:+ +:+         +:+     //
+//   By: mnguyen <mnguyen@student.42.fr>            +#+  +:+       +#+        //
+//                                                +#+#+#+#+#+   +#+           //
+//   Created: 2015/06/19 04:22:20 by mnguyen           #+#    #+#             //
+//   Updated: 2015/06/19 04:23:28 by mnguyen          ###   ########.fr       //
+//                                                                            //
+// ************************************************************************** //
+
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+class ScavTrap
+{
+public:
+    ScavTrap(void);
+    ScavTrap(std::string n);
+    ScavTrap(ScavTrap const &copy);
+    ~ScavTrap(void);
+    ScavTrap    &operator=(ScavTrap const& copy);
+    void    rangedAttack(std::string const & target) const;
+    void    meleeAttack(std::string const & target) const;
+    void    takeDamage(unsigned int amount);
+    void    beRepaired(unsigned int amount);
+    void    challengeNewcomer(void);
+
+protected:
+	std::string name;
+    unsigned int        hit_points;
+    unsigned int        max_hit_points;
+    unsigned int        energy_points;
+    unsigned int        max_energy_points;
+    unsigned int        level;
+    unsigned int        melee_attack_damage;
+    unsigned int        ranged_attack_damage;
+    unsigned int        armor_damage_reduction;
+
+};
+
+#endif
